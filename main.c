@@ -51,7 +51,7 @@ int main()
         {
             shift_value = var1.exp - var2.exp;
             var2.mantissa_aux = var2.mantissa_aux >> shift_value;
-            adjustment = calc_adjustment(var1.numeric_input.field.mantissa & var2.mantissa_aux);
+            adjustment = calc_adjustment(var1.mantissa_aux & var2.mantissa_aux);
 
             sum_mantissa = (var2.mantissa_aux >> adjustment) + (var1.mantissa_aux >> adjustment);
 
@@ -61,7 +61,7 @@ int main()
         {
             shift_value = var2.exp - var1.exp;
             var1.mantissa_aux = var1.mantissa_aux >> shift_value;
-            adjustment = calc_adjustment(var1.mantissa_aux & var2.numeric_input.field.mantissa);
+            adjustment = calc_adjustment(var1.mantissa_aux & var2.mantissa_aux);
 
             sum_mantissa = (var1.mantissa_aux >> adjustment) + (var2.mantissa_aux >> adjustment);
 
@@ -73,7 +73,7 @@ int main()
         ieee754_printer(sum_result);
     } else
     {
-        adjustment = calc_adjustment(var1.numeric_input.field.mantissa & var2.numeric_input.field.mantissa);
+        adjustment = calc_adjustment(var1.mantissa_aux & var2.mantissa_aux);
         sum_mantissa = (var1.mantissa_aux >> adjustment) + (var2.mantissa_aux >> adjustment);
         sum_result.field.power = var1.numeric_input.field.power + adjustment;
         sum_result.field.signal = var1.numeric_input.field.signal;
