@@ -105,8 +105,8 @@ void print_binary(int bin_number, int size)
     }
 }
 
-// calc_adjustment finds out what is the necessary shift right value to normalize a number
-// the logic consists of examining how many 1's there are after running an END operation against the two numbers
+// calc_adjustment finds out what is the necessary shift value to normalize a number
+// the logic consists of examining how many 1's there are after running an AND operation against the two numbers
 // to be added
 int calc_adjustment(int bin_number1, int bin_number2)
 {
