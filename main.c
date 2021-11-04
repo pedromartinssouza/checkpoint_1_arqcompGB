@@ -112,7 +112,7 @@ int calc_adjustment(int bin_number1, int bin_number2)
 {
     int bin_number = bin_number1 & bin_number2;
     int aux = 0;
-    while ((bin_number << aux) & 0x400000) // while first number of shifted bin_number is 1, stay in loop (bin 1 followed by 22 zeros)
+    while ((bin_number << aux) & 0x800000) // while first number of shifted bin_number is 1, stay in loop (bin 1 followed by 23 zeros)
     {
         aux++;
     }
